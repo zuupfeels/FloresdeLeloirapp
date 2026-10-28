@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      (function() {
+        // Interceptar conexiones WebSocket exclusivas de Vite HMR en iframe Cloud Run
+        var OrigWebSocket = window.WebSocket;
+        if (OrigWebSocket) {
+          window.WebSocket = function(url, protocols) {
+            var isViteHmr = false;
+            if (protocols === 'vite-hmr' || (Array.isArray(protocols) && protocols.indexOf('vite-hmr') !== -1)) {
+              isViteHmr = true;
+            }
+            if (typeof url === 'string' && (url.indexOf('token=') !== -1 || url.indexOf('24678') !== -1 || url.indexOf('vite-hmr') !== -1)) {
+              isViteHmr = true;
+            }
+            if (isViteHmr) {
+              var listeners = {};
+              var fakeWs = {
+                url: String(url),
+                readyState: 1, // WebSocket.OPEN
+                OPEN: 1,
+                CONNECTING: 0,
+                CLOSING: 2,
+                CLOSED: 3,
+                send: function() {},
+                close: function() {},
+                addEventListener: function(event, handler) {
+                  listeners[event] = listeners[event] || [];
+                  listeners[event].push(handler);
+                  if (event === 'open') {
+                    setTimeout(function() {
+                      try { handler({ type: 'open', target: fakeWs }); } catch(err) {}
+                    }, 0);
+                  }
+                },
+                removeEventListener: function(event, handler) {
+                  if (!listeners[event]) return;
+                  listeners[event] = listeners[event].filter(function(h) { return h !== handler; });
+                },
+                dispatchEvent: function() { return true; },
+                onopen: null,
+                onclose: null,
+                onerror: null,
+                onmessage: null
+              };
+              return fakeWs;
+            }
+            return new OrigWebSocket(url, protocols);
+          };
+          window.WebSocket.prototype = OrigWebSocket.prototype;
+          window.WebSocket.CONNECTING = 0;
+          window.WebSocket.OPEN = 1;
+          window.WebSocket.CLOSING = 2;
+          window.WebSocket.CLOSED = 3;
+        }
+
+        // Suprimir cualquier error remanente de HMR o WebSocket
+        function isViteHmrError(err, msg, file) {
+          var str = String(err && err.message || '') + ' ' +
+                    String(err && err.stack || '') + ' ' +
+                    String(msg || '') + ' ' +
+                    String(file || '');
+          return str.indexOf('WebSocket') !== -1 ||
+                 str.indexOf('createWebSocketModuleRunnerTransport') !== -1 ||
+                 str.indexOf('@vite/client') !== -1 ||
+                 str.indexOf('vite') !== -1;
+        }
+        window.addEventListener('error', function(e) {
+          if (isViteHmrError(e.error, e.message, e.filename)) {
+            e.preventDefault && e.preventDefault();
+            e.stopImmediatePropagation && e.stopImmediatePropagation();
+            return true;
+          }
+        }, true);
+        window.addEventListener('unhandledrejection', function(e) {
+          if (isViteHmrError(e.reason)) {
+            e.preventDefault && e.preventDefault();
+            e.stopImmediatePropagation && e.stopImmediatePropagation();
+          }
+        }, true);
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Juntos a la Par - Escuela de Educación Especial • Sistema de Legajos</title>
+    <meta name="description" content="Juntos a la Par - Escuela de Educación Especial. Sistema integral de generación automática de legajos, presupuestos y formularios PDF para obras sociales e integración escolar." />
+    <meta property="og:title" content="Juntos a la Par - Escuela de Educación Especial" />
+    <meta property="og:description" content="Sistema integral de generación automática de legajos, presupuestos y formularios PDF para obras sociales e integración escolar." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#12632f" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Juntos a la Par" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <link rel="icon" type="image/svg+xml" href="./icon.svg" />
+    <link rel="icon" type="image/png" href="./favicon.png" />
+    <script type="module" crossorigin src="./assets/index-DCefgPmE.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BFTU5Xfd.css">
+  <script id="vite-plugin-pwa:register-sw" src="./registerSW.js"></script></head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
+
