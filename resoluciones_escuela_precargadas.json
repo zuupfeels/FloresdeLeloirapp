@@ -1,0 +1,54 @@
+{
+  "lista": [
+    {
+      "resolucion": "01/2026",
+      "mes": "OCTUBRE",
+      "anio": "2026",
+      "prestacion": "MODULO DE APOYO A LA INTEGRACION ESCOLAR (CON EQUIPO)",
+      "arancel": 784674.41
+    },
+    {
+      "resolucion": "01/2026",
+      "mes": "OCTUBRE",
+      "anio": "2026",
+      "prestacion": "MODULO DE APOYO A LA INTEGRACION ESCOLAR (MODALIDAD AE)",
+      "arancel": 784674.41
+    },
+    {
+      "resolucion": "01/2026",
+      "mes": "OCTUBRE",
+      "anio": "2026",
+      "prestacion": "ESCOLARIDAD ESPECIAL PRIMARIA JORNADA DOBLE",
+      "arancel": 1202539.53
+    },
+    {
+      "resolucion": "01/2026",
+      "mes": "OCTUBRE",
+      "anio": "2026",
+      "prestacion": "ESCOLARIDAD ESPECIAL PRIMARIA JORNADA SIMPLE",
+      "arancel": 608186.79
+    },
+    {
+      "resolucion": "01/2026",
+      "mes": "OCTUBRE",
+      "anio": "2026",
+      "prestacion": "ESCOLARIDAD ESPECIAL INICIAL JORNADA SIMPLE",
+      "arancel": 608186.79
+    },
+    {
+      "resolucion": "01/2026",
+      "mes": "OCTUBRE",
+      "anio": "2026",
+      "prestacion": "ESCOLARIDAD FORMACION LABORAL JORNADA DOBLE",
+      "arancel": 1120454.43
+    },
+    {
+      "resolucion": "01/2026",
+      "mes": "OCTUBRE",
+      "anio": "2026",
+      "prestacion": "ESCOLARIDAD FORMACION LABORAL JORNADA SIMPLE",
+      "arancel": 609286.5
+    }
+  ],
+  "updatedAt": "2026-11-13T14:40:00.000Z"
+}

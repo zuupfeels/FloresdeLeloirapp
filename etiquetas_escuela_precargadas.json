@@ -1,0 +1,33 @@
+[
+  {
+    "id": "tag-custom-1792171456554",
+    "etiqueta": "{PERIODO_MES_A_MES}",
+    "nombre": "periodo_mes_a_mes",
+    "categoria": "Personalizada",
+    "descripcion": "periodo mes sin año",
+    "tipoOrigen": "texto_fijo",
+    "textoFijo": "Febrero a Diciembre",
+    "fechaCreacion": "2026-10-16T17:24:16.554Z"
+  },
+  {
+    "id": "tag-custom-1792171701578",
+    "etiqueta": "{RES_VALOR}",
+    "nombre": "res_valor",
+    "categoria": "Aranceles",
+    "descripcion": "Etiqueta personalizada (campo_config)",
+    "tipoOrigen": "campo_config",
+    "campoOrigen": "matriculaCuota",
+    "sufijo": " Según RES.",
+    "fechaCreacion": "2026-10-16T17:28:21.578Z"
+  },
+  {
+    "id": "tag-custom-1792174229002",
+    "etiqueta": "{JUNTOSALAPAR}",
+    "nombre": "ESCUELA",
+    "categoria": "Institución",
+    "descripcion": "JUNTOS A LA PAR",
+    "tipoOrigen": "texto_fijo",
+    "textoFijo": "ESCUELA ESPECIAL JUNTOS A LA PAR",
+    "fechaCreacion": "2026-10-16T18:11:24.223Z"
+  }
+]
