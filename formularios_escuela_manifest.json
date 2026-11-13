@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "totalForms": 96,
+  "parts": [
+    "formularios_escuela_parte_1.json",
+    "formularios_escuela_parte_2.json",
+    "formularios_escuela_parte_3.json",
+    "formularios_escuela_parte_4.json",
+    "formularios_escuela_parte_5.json",
+    "formularios_escuela_parte_6.json"
+  ]
+}
