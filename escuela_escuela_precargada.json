@@ -1,15 +1,15 @@
 {
-  "localidad": "Ituzaingó",
-  "cargoDirectora": "Directora",
-  "nombreDirectora": "Gabriela Bovina Giorgio",
-  "razonSocial": "FLORES DE LELOIR S.A.",
-  "direccion": "De las Boleadoras 2974",
-  "cuit": "30714508144",
-  "resolucionHabilitacion": "",
-  "provincia": "Buenos Aires",
   "nombreInstitucion": "Escuela Especial Juntos a la Par",
-  "updatedAt": "2026-11-13T15:09:43.578Z",
-  "email": "escuelajuntosalapar@gmail.com",
+  "razonSocial": "FLORES DE LELOIR S.A.",
   "numeroInstitucion": "8298",
-  "telefono": "11 3141 9499"
+  "cuit": "30714508144",
+  "direccion": "De las Boleadoras 2974",
+  "localidad": "Ituzaingó",
+  "provincia": "Buenos Aires",
+  "telefono": "11 3141 9499",
+  "email": "escuelajuntosalapar@gmail.com",
+  "nombreDirectora": "Gabriela Bovina Giorgio",
+  "cargoDirectora": "Directora",
+  "resolucionHabilitacion": "",
+  "updatedAt": "2026-11-13T15:09:43.578Z"
 }
